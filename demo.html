@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no" />
+  <title>良品铺子</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      line-height: 100%;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    html,
+    body,
+    div.wrap,
+    ul {
+      width: 100%;
+      height: 100%;
+      margin:10px 0;
+    }
+
+    li{
+      width:100%;
+    }
+    img {
+      width: 90%;
+      margin:0 auto;
+      display:block;
+      vertical-align: top;
+    }
+    a{
+      color:#666;
+      text-decoration: none;
+    }
+    p{
+      color:#666;
+      font-size:12px;
+      line-height:16px;
+      margin:10px 20px 10px 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <ul>
+      <li>
+        <a href="https://shop.m.jd.com/?shopId=25789&wjfrom=WX_JK&wjwxpubid=wx175f767eaed26dba&wjunionid&wjopenid=orvzrw_PCUGCF9ynGXZ39XA52Efo">
+          <img src="http://img10.360buyimg.com/n0/jfs/t18547/238/1632425079/74655/869f3500/5ad1ede4N9528791a.jpg" alt="">
+          <p>良品铺子 蛋花玉米 爆米花68g×6袋 休闲零食</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://shop.m.jd.com/?shopId=25789&wjfrom=WX_JK&wjwxpubid=wx175f767eaed26dba&wjunionid&wjopenid=orvzrw_PCUGCF9ynGXZ39XA52Efo">
+          <img src="http://img10.360buyimg.com/n0/jfs/t21565/193/501540653/377764/e4042d99/5b0faec9Nb88698da.jpg" alt="">
+          <p>良品铺子 618热辣开场  万份零食0.01元秒杀 爆款随机发货 不指定秒杀单品</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://shop.m.jd.com/?shopId=25789&wjfrom=WX_JK&wjwxpubid=wx175f767eaed26dba&wjunionid&wjopenid=orvzrw_PCUGCF9ynGXZ39XA52Efo">
+          <img src="http://img10.360buyimg.com/n0/jfs/t8725/325/1920129086/322625/f19d3009/59c0ed17N95314cb3.jpg" alt="">
+          <p>【良品铺子】靖江猪肉脯 100g肉脯肉干 休闲零食</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://shop.m.jd.com/?shopId=25789&wjfrom=WX_JK&wjwxpubid=wx175f767eaed26dba&wjunionid&wjopenid=orvzrw_PCUGCF9ynGXZ39XA52Efo">
+          <img src="http://img10.360buyimg.com/n0/jfs/t22045/149/827616275/384982/4f795b72/5b189da0N8007a717.jpg" alt="">
+          <p>良品铺子 618热辣开场  万份零食0.01元秒杀 爆款随机发货 不指定秒杀单品</p>
+        </a>
+      </li>
+      <li>
+        <a href="https://shop.m.jd.com/?shopId=25789&wjfrom=WX_JK&wjwxpubid=wx175f767eaed26dba&wjunionid&wjopenid=orvzrw_PCUGCF9ynGXZ39XA52Efo">
+          <img src="http://img10.360buyimg.com/n0/jfs/t21712/258/500423756/377764/e4042d99/5b0faac3N96e6b66c.jpg" alt="">
+          <p>良品铺子 618热辣开场  万份零食0.01元秒杀 爆款随机发货 不指定秒杀单品</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+<script type="text/javascript">
+var jap = {
+    siteId : 'your-site-id', //站点编号，必传字段，如无需要从子午线申请
+    account : '',  // 业务方将pin以前端变量的形式传入，如果不需独立上传pin，务必请该字段去掉
+    skuid: '', //商详页上报skuid
+    shopid: '25789', //店铺页上报店铺id
+    orderid: '', //订单成功提交页上报订单号
+    autoLogPv: true  //是否自动上报pv
+};
+</script>
+<script type="text/javascript" src="http://wl.jd.com/unify.min.js"></script>
+
+<script type="text/javascript">
+	function addToBuyCar(skuId){
+		try{
+			//var skuId = "sku_1";                          // 必选参数sku
+			var eventId = "MProductdetail_Addtocart"; // 必选参数，事件id
+			var cart = new MPing.inputs. AddCart(eventId, skuId);   // 构造AddCart 请求
+			cart.event_param = "demo";              // 设置cart的参数,可以设置其他参数
+			var mping = new MPing();               // 构造上报实例
+			mping.send(cart);			// 上报cart
+			console.log("结果:")
+		} catch (e){
+		console.log("报错:"+e)
+		}
+	}
+</script>
+
+
+</html>
