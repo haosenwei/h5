@@ -1,0 +1,86 @@
+
+<title>数据字典-${sessionScope.sysTitle}</title>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="row">
+			<form id="sysDic_search_form" role="form" >
+				<div class="col-md-2">
+				<div class="form-group" >
+					  <input type="text" class="form-control" onkeypress="if(event.keyCode==13) {sysDic_aceSearch.click();return false;}"  name="search_name" placeholder="名称"  />
+				</div>
+				</div>
+				<div class="col-md-2">
+				<div class="form-group">
+			        <button type="button" id="sysDic_aceSearch" class="btn btn-info btn-sm" data-rel="tooltip" title="查询" >
+						<span class="ace-icon fa fa-search icon-on-right bigger-110" ></span>
+					</button>
+					<button type="button" id="sysDic_aceAdd" class="btn btn-info btn-sm  btn-success" data-rel="tooltip" title="添加">
+						<span class="ace-icon fa fa-plus  icon-on-right bigger-110"  ></span>
+					</button>
+					<button type="button" id="sysDic_aceDels" class="btn btn-info btn-sm  btn-pink" data-rel="tooltip" title="删除">
+						<span class="ace-icon fa fa-trash-o  icon-on-right bigger-110" ></span>
+					</button>
+				</div>
+				</div>
+			</form>
+		</div>
+		<!-- 查询条件 -->
+	</div>
+	<div class="col-xs-12">
+		<table id="sysDic" class="table table-striped table-bordered table-hover" >
+			<thead>
+				<tr class="center">
+					<td><label class="pos-rel"> <input type="checkbox" class="ace" name="id" /> <span class="lbl"></span>
+					</label></td>
+					<td>主键:id</td>
+					<td>数据字典名称</td>
+					<td>编码</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+	$('.page-content-area').ace_ajax('loadScripts',[],function() {
+		var columns=[
+				{"data" : "id",className: "center","createdCell" : function(td, cellData,rowData, row,col) {
+					createCheckCell(td, cellData,rowData, row,col);
+					}
+				},
+				{"data" : "id",className: "center"}, 
+				{"data" : "name",className: "center"}, 
+				{"data" : "code",className: "center"}, 
+				{"data" : "id",className: "center","createdCell":function(td, cellData,rowData, row,col){
+					createCellAuth(td, cellData,rowData, row,col);
+					}
+				}
+			];
+		initMainTable("sysDic","${server}sys/dic/search?${_csrf.parameterName}=${_csrf.token}",columns);
+		$('.page-content-area').ace_ajax('stopLoading', true);
+	})
+	//添加
+	$('#sysDic_aceAdd').on('click',function() {
+		aceAdd("添加数据字典","${server}sys/dic/toAdd?${_csrf.parameterName}=${_csrf.token}","${server}sys/dic/doAdd?${_csrf.parameterName}=${_csrf.token}","sysDic",null);
+	});
+	//修改
+	function aceEditf(id) {
+		aceEdit(id,"修改数据字典","${server}sys/dic/toEdit?${_csrf.parameterName}=${_csrf.token}","${server}sys/dic/doEdit?${_csrf.parameterName}=${_csrf.token}","sysDic",null);
+	}
+	//查看
+	function aceViewf(id) {
+		aceView(id,"查看数据字典","${server}sys/dic/toView?${_csrf.parameterName}=${_csrf.token}");
+	}
+	
+	//删除
+	function aceDelF(id) {
+		aceDel(id , 'sysDic',"${server}sys/dic/del?${_csrf.parameterName}=${_csrf.token}");
+	}
+	
+	//分页检索
+	$('#sysDic_aceSearch').on('click',function() {
+		$('#sysDic').DataTable().ajax.reload();
+	});
+</script>
